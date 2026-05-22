@@ -1,0 +1,475 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GGSIPU B.Com Registration Form</title>
+<script>
+    function redirectToLogin() {
+            alert("Registration Successful!");
+            window.location.href = "login.html";  // Redirect to login page
+        }
+</script>
+<STYLE>
+/* ======================================================= */
+/* 1. GLOBAL RESET AND TYPOGRAPHY                          */
+/* ======================================================= */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* Light gray background */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* University Header Styling (GGSIPU Blue/White) */
+.university-header {
+    background-color: #004d99; /* Deep Blue, often associated with GGSIPU */
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 5px solid #ffcc00; /* Gold/Yellow accent */
+}
+
+.university-header h1 {
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.university-header h3 {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.registration-title {
+    text-align: center;
+    padding: 15px;
+    background-color: #e6f0ff; /* Very light blue background */
+    color: #004d99;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 2px solid #ccc;
+}
+
+/* ======================================================= */
+/* 2. FORM CONTAINER AND SECTIONS                          */
+/* ======================================================= */
+
+.application-form {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.form-section legend {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #004d99;
+    padding: 0 15px;
+    margin-left: -5px;
+}
+
+.subsection-title {
+    font-size: 1.4em;
+    color: #555;
+    text-align: left;
+    margin: 20px 0 15px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ======================================================= */
+/* 3. INPUTS AND LABELS (FLEX LAYOUT)                      */
+/* ======================================================= */
+
+/* Group for single line, full-width fields */
+.form-group {
+    margin-bottom: 20px;
+    display: flex; /* Enable flex for immediate child elements */
+    flex-direction: column; /* Stack label and input vertically by default */
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+/* Fields that should be side-by-side (First Name, Last Name, etc.) */
+.inline-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px; /* Space between the two field sets */
+}
+
+/* Ensures each label/input pair within an inline-group takes up roughly half the space */
+.inline-group > label {
+    flex: 1 1 180px; /* Label gets space */
+    margin-top: 5px; /* Adjust spacing */
+}
+
+.inline-group > input, .inline-group > select {
+    flex: 2 1 250px; /* Input gets more space */
+    margin-right: 15px;
+}
+
+/* Style for all text, number, email, date, and select inputs */
+input:not([type="radio"]):not([type="checkbox"]), select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    width: 100%; /* Default to full width in column layout */
+    box-sizing: border-box;
+}
+
+input:focus, select:focus {
+    border-color: #007bff; /* Highlight focus with a professional blue */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* ======================================================= */
+/* 4. RADIO BUTTONS AND CHECKBOXES                         */
+/* ======================================================= */
+
+.radio-label-group {
+    margin-bottom: 10px;
+}
+
+.radio-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.radio-options label {
+    font-weight: normal;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-left: -5px; /* Pull labels slightly left for alignment */
+}
+
+/* For multi-line radio groups like Category */
+.column-layout {
+    flex-direction: column;
+    gap: 5px; /* Tighter vertical spacing */
+}
+
+.column-layout label {
+    margin-bottom: 5px;
+}
+
+/* Style for the "Same Address" checkbox label */
+.copy-address label {
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+/* ======================================================= */
+/* 5. SUBMIT BUTTON                                        */
+/* ======================================================= */
+
+.submit-section {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.submit-section h4 {
+    color: #004d99;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    background-color: #009933; /* A professional green for action/submit */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover {
+    background-color: #007722;
+    transform: translateY(-1px);
+}
+
+/* ======================================================= */
+/* 6. RESPONSIVENESS (Mobile Devices)                      */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    .application-form {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    /* Force inline fields to stack vertically on small screens */
+    .inline-group {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .inline-group > label, .inline-group > input, .inline-group > select {
+        flex: 1 1 100%; /* Take up full width */
+        margin-right: 0;
+    }
+}
+</STYLE>
+</head>
+<body>
+
+    <header class="university-header">
+        <h1>GURU GOBIND SINGH INDRAPRASTHA UNIVERSITY</h1>
+        <h3>SECTOR-16C DWARKA, NEW DELHI-110078</h3>
+    </header>
+    
+    <div class="registration-title">
+        <p>REGISTRATION FORM FOR BACHELORS OF COMMERCE (CET CODE-)</p>
+    </div>
+
+    <form>
+
+        <fieldset class="form-section">
+            <legend>Personal Information of Candidate</legend>
+            
+            <h4 class="subsection-title">Candidate Info</h4>
+            
+            <div class="form-group inline-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="candidate_fname" placeholder="First Name">
+                
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="candidate_lname" placeholder="Last Name">
+            </div>
+            
+            <div class="form-group inline-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+                
+                <label for="aadhaar">Aadhaar Number</label>
+                <input type="text" id="aadhaar" name="aadhaar_number" pattern="\d{12}" maxlength="12" placeholder="12-digit Number">
+            </div>
+            
+            <div class="form-group">
+                <label class="radio-label-group">Gender</label>
+                <div class="radio-options">
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                    
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                    
+                    <input type="radio" name="gender" id="other_gender" value="other">
+                    <label for="other_gender">Non-binary / Other</label>
+                </div>
+            </div>
+
+            <h4 class="subsection-title">Parents Detail</h4>
+            
+            <div class="form-group inline-group">
+                <label for="father_name">Father's Name</label>
+                <input type="text" id="father_name" name="father_name" placeholder="Father's Full Name">
+                
+                <label for="mother_name">Mother's Name</label>
+                <input type="text" id="mother_name" name="mother_name" placeholder="Mother's Full Name">
+            </div>
+
+            <h4 class="subsection-title">Contact Detail</h4>
+            
+            <div class="form-group inline-group">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email_id" placeholder="user@example.com">
+                
+                <label for="mobile">Mobile No.</label>
+                <input type="tel" id="mobile" name="mobile_number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alt_mobile">Alternative Mobile No.</label>
+                <input type="tel" id="alt_mobile" name="alt_mobile_number" placeholder="Optional 10-digit Number">
+            </div>
+
+            <h4 class="subsection-title">Bank Account Details for Refund</h4>
+            
+            <div class="form-group inline-group">
+                <label for="account_holder">Account Holder Name</label>
+                <input type="text" id="account_holder" name="account_holder_name">
+                
+                <label for="account_num">Account Number</label>
+                <input type="text" id="account_num" name="account_number" inputmode="numeric">
+            </div>
+
+            <div class="form-group">
+                <label for="ifsc_code">IFSC Code</label>
+                <input type="text" id="ifsc_code" name="ifsc_code" pattern="[A-Z]{4}0[A-Z0-9]{6}" placeholder="e.g., UTIB0000001" >
+            </div>
+            
+            <fieldset class="form-group">
+                <legend>Category Selection</legend>
+                <div class="radio-options column-layout">
+                    <input type="radio" value="GENERAL" name="category" id="general" required><label for="general">GENERAL</label>
+                    <input type="radio" value="OBC-NCL" name="category" id="obc_ncl"><label for="obc_ncl">OBC-NCL</label>
+                    <input type="radio" value="SCHEDULED CASTE" name="category" id="sc"><label for="sc">SCHEDULED CASTE (SC)</label>
+                    <input type="radio" value="SCHEDULED TRIBE" name="category" id="st"><label for="st">SCHEDULED TRIBE (ST)</label>
+                    <input type="radio" value="DEFENCE WARDS" name="category" id="defence"><label for="defence">DEFENCE WARDS</label>
+                    <input type="radio" value="KASHMIRI MIGRANTS" name="category" id="km"><label for="km">KASHMIRI MIGRANTS</label>
+                    <input type="radio" value="PWD" name="category" id="pwd"><label for="pwd">PWD (Person With Disability)</label>
+                </div>
+            </fieldset>
+
+        </fieldset>
+        
+        <fieldset class="form-section">
+            <legend>Educational Qualification</legend>
+            
+            <h4 class="subsection-title">Class X Qualification</h4>
+            <div class="form-group">
+                <label for="x_school_name">Name of School</label>
+                <input type="text" id="x_school_name" name="x_school_name">
+            </div>
+            <div class="form-group">
+                <label for="x_school_address">School Address</label>
+                <input type="text" id="x_school_address" name="x_school_address">
+            </div>
+            
+            <div class="form-group inline-group">
+                <label for="x_board">Board</label>
+                <select id="x_board" name="x_board">
+                    <option value="">-- Select Board --</option>
+                    <option value="CBSE">CENTRAL BOARD OF SECONDARY EDUCATION</option>
+                    <option value="BSEB">BIHAR SCHOOL EXAMINATION BOARD</option>
+                    <option value="ICSE">INDIAN CERTIFICATE OF SECONDARY EDUCATION</option>
+                    </select>
+                
+                <label for="x_roll_num">Board Roll Number</label>
+                <input type="text" id="x_roll_num" name="x_roll_num">
+            </div>
+            
+            <div class="form-group">
+                <label for="x_percentage">Class X Percentage/CGPA</label>
+                <input type="number" id="x_percentage" name="x_percentage" placeholder="e.g., 90.50">
+            </div>
+
+            <h4 class="subsection-title">Class XII Qualification</h4>
+            
+            <div class="form-group">
+                <label class="radio-label-group">Status</label>
+                <div class="radio-options">
+                    <input type="radio" value="PASSED" name="xii_status" id="xii_passed">
+                    <label for="xii_passed">PASSED OUT</label>
+                    <input type="radio" value="AWAITED" name="xii_status" id="xii_awaited">
+                    <label for="xii_awaited">APPEARING/RESULT AWAITED</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="xii_school_name">Name of School</label>
+                <input type="text" id="xii_school_name" name="xii_school_name" >
+            </div>
+            <div class="form-group">
+                <label for="xii_school_address">School Address</label>
+                <input type="text" id="xii_school_address" name="xii_school_address" >
+            </div>
+            
+            <div class="form-group inline-group">
+                <label for="xii_board">Board</label>
+                <select id="xii_board" name="xii_board" required>
+                    <option value="">-- Select Board --</option>
+                    <option value="CBSE">CENTRAL BOARD OF SECONDARY EDUCATION</option>
+                    <option value="BSEB">BIHAR SCHOOL EXAMINATION BOARD</option>
+                    </select>
+                
+                <label for="xii_roll_num">Board Roll Number</label>
+                <input type="text" id="xii_roll_num" name="xii_roll_num">
+            </div>
+            
+            <div class="form-group">
+                <label for="xii_percentage">Class XII Percentage/CGPA</label>
+                <input type="number" id="xii_percentage" name="xii_percentage" placeholder="e.g., 90.50">
+            </div>
+
+        </fieldset>
+        
+        <fieldset class="form-section">
+            <legend>Residence of Candidate</legend>
+            
+            <h4 class="subsection-title">Current Address</h4>
+            
+            <div class="form-group inline-group">
+                <label for="cur_hno">House No./Name</label>
+                <input type="text" id="cur_hno" name="cur_house_name">
+                
+                <label for="cur_street">Street/Road No</label>
+                <input type="text" id="cur_street" name="cur_street_num">
+            </div>
+
+            <div class="form-group inline-group">
+                <label for="cur_locality">Locality/Village</label>
+                <input type="text" id="cur_locality" name="cur_locality">
+                
+                <label for="cur_area">Area/Sector</label>
+                <input type="text" id="cur_area" name="cur_area">
+            </div>
+            
+            <div class="form-group inline-group">
+                <label for="cur_post_office">Post Office</label>
+                <input type="text" id="cur_post_office" name="cur_post_office" >
+                
+                <label for="cur_pincode">PINCODE</label>
+                <input type="text" id="cur_pincode" name="cur_pincode" pattern="\d{6}" maxlength="6">
+            </div>
+            
+            <div class="form-group inline-group">
+                <label for="cur_city">City</label>
+                <input type="text" id="cur_city" name="cur_city" >
+                
+                <label for="cur_district">District (Delhi)</label>
+                <select id="cur_district" name="cur_district">
+                    <option value="">-- Select District --</option>
+                    <option value="NORTH DELHI">NORTH DELHI</option>
+                    </select>
+            </div>
+            
+            <h4 class="subsection-title">Permanent Address</h4>
+            
+            <div class="form-group copy-address">
+                <input type="checkbox" id="same_as_current" name="same_address_check">
+                <label for="same_as_current">Permanent Address is Same as Current Address</label>
+            </div>
+
+            <div id="permanent_address_fields">
+                <div class="form-group inline-group">
+                    <label for="perm_hno">House No./Name</label>
+                    <input type="text" id="perm_hno" name="perm_house_name">
+                    
+                    <label for="perm_street">Street/Road No</label>
+                    <input type="text" id="perm_street" name="perm_street_num">
+                </div>
+                </div>
+        </fieldset>
+        <div class="submit-section">
+            <h4>Confirmation and Submission</h4>
+            <button type="submit" class="submit-button" onclick="redirectToLogin()">SUBMIT APPLICATION FORM</button>
+        </div>
+    </form>
+</body>
+</html>
